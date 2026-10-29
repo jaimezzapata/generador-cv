@@ -6,12 +6,11 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
+  useSyncExternalStore,
 } from "react";
 import {
   ColorMode,
   ThemeContextContract,
-  ThemeState,
   VisualStyle,
 } from "../types/theme.types";
 import {
@@ -26,25 +25,26 @@ export const ThemeEngineContext = createContext<ThemeContextContract | null>(
 );
 
 export function useThemeStateController(): ThemeContextContract {
-  const [theme, setTheme] = useState<ThemeState>(() =>
-    themeStorageService.loadTheme()
+  const theme = useSyncExternalStore(
+    themeStorageService.subscribe,
+    themeStorageService.getClientSnapshot,
+    themeStorageService.getServerSnapshot
   );
 
   useEffect(() => {
     applyThemeAttributesToDom(theme);
-    themeStorageService.saveTheme(theme);
   }, [theme]);
 
   const setStyle = useCallback((style: VisualStyle) => {
-    setTheme((prev) => ({ ...prev, style }));
+    themeStorageService.updateTheme((prev) => ({ ...prev, style }));
   }, []);
 
   const setMode = useCallback((mode: ColorMode) => {
-    setTheme((prev) => ({ ...prev, mode }));
+    themeStorageService.updateTheme((prev) => ({ ...prev, mode }));
   }, []);
 
   const toggleMode = useCallback(() => {
-    setTheme((prev) => ({
+    themeStorageService.updateTheme((prev) => ({
       ...prev,
       mode: prev.mode === "light" ? "dark" : "light",
     }));
@@ -78,4 +78,3 @@ export function useThemeEngine(): ThemeContextContract {
   }
   return context;
 }
-

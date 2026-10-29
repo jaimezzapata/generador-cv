@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Badge } from "@/shared/components/ui/Badge";
 import { Button } from "@/shared/components/ui/Button";
 import { Card } from "@/shared/components/ui/Card";
@@ -37,9 +38,11 @@ export function StudioPhaseStatusCard() {
           ))}
         </div>
 
-        <Button variant="primary" size="lg" className="w-[220px] min-w-[220px]">
-          Empezar Ahora →
-        </Button>
+        <Link href="/editor">
+          <Button variant="primary" size="lg" className="w-[220px] min-w-[220px]">
+            Empezar Ahora →
+          </Button>
+        </Link>
       </Card>
     </section>
   );

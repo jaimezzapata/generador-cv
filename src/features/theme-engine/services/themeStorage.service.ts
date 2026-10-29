@@ -7,37 +7,68 @@ import {
 
 const THEME_STORAGE_KEY = "generador_cv_theme_v2";
 
+type Listener = () => void;
+
+let cachedTheme: ThemeState | null = null;
+const listeners = new Set<Listener>();
+
+function emitChange(): void {
+  listeners.forEach((listener) => listener());
+}
+
+function readThemeFromStorage(): ThemeState {
+  if (typeof window === "undefined") {
+    return DEFAULT_THEME_STATE;
+  }
+
+  try {
+    const raw = window.localStorage.getItem(THEME_STORAGE_KEY);
+    if (!raw) return DEFAULT_THEME_STATE;
+
+    const parsed = JSON.parse(raw) as Partial<ThemeState>;
+    const style = isValidVisualStyle(parsed.style)
+      ? parsed.style
+      : DEFAULT_THEME_STATE.style;
+    const mode = isValidColorMode(parsed.mode)
+      ? parsed.mode
+      : DEFAULT_THEME_STATE.mode;
+
+    return { style, mode };
+  } catch {
+    return DEFAULT_THEME_STATE;
+  }
+}
+
 export const themeStorageService = {
-  loadTheme(): ThemeState {
-    if (typeof window === "undefined") {
-      return DEFAULT_THEME_STATE;
-    }
-
-    try {
-      const raw = window.localStorage.getItem(THEME_STORAGE_KEY);
-      if (!raw) return DEFAULT_THEME_STATE;
-
-      const parsed = JSON.parse(raw) as Partial<ThemeState>;
-      const style = isValidVisualStyle(parsed.style)
-        ? parsed.style
-        : DEFAULT_THEME_STATE.style;
-      const mode = isValidColorMode(parsed.mode)
-        ? parsed.mode
-        : DEFAULT_THEME_STATE.mode;
-
-      return { style, mode };
-    } catch {
-      return DEFAULT_THEME_STATE;
-    }
+  subscribe(listener: Listener): () => void {
+    listeners.add(listener);
+    return () => {
+      listeners.delete(listener);
+    };
   },
 
-  saveTheme(theme: ThemeState): void {
-    if (typeof window === "undefined") return;
+  getServerSnapshot(): ThemeState {
+    return DEFAULT_THEME_STATE;
+  },
 
-    try {
-      window.localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify(theme));
-    } catch {
-      // Ignore storage quota or private mode errors gracefully
+  getClientSnapshot(): ThemeState {
+    if (!cachedTheme) {
+      cachedTheme = readThemeFromStorage();
     }
+    return cachedTheme;
+  },
+
+  updateTheme(updater: (prev: ThemeState) => ThemeState): void {
+    const next = updater(this.getClientSnapshot());
+    cachedTheme = next;
+
+    if (typeof window !== "undefined") {
+      try {
+        window.localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify(next));
+      } catch {
+        // Ignore storage quota or private mode errors gracefully
+      }
+    }
+    emitChange();
   },
 };

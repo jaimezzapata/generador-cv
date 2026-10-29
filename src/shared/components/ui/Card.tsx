@@ -15,19 +15,11 @@ export function Card({
     <div
       className={cn(
         elevated ? "theme-elevated" : "theme-surface",
-        "relative overflow-hidden p-5 pt-6 transition-all duration-150",
+        "relative overflow-hidden p-5 transition-all duration-150",
         className
       )}
       {...props}
     >
-      <div
-        aria-hidden="true"
-        className="absolute top-0 left-0 right-0 h-2"
-        style={{
-          background: "var(--card-header-accent)",
-          borderBottom: "var(--border-width) var(--border-style) var(--border-color)",
-        }}
-      />
       {children}
     </div>
   );

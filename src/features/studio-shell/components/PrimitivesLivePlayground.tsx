@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Badge } from "@/shared/components/ui/Badge";
 import { Button } from "@/shared/components/ui/Button";
 import { Card } from "@/shared/components/ui/Card";
@@ -33,13 +34,15 @@ export function PrimitivesLivePlayground() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-1">
-            <Button
-              variant="primary"
-              size="lg"
-              className="w-[210px] min-w-[210px]"
-            >
-              Crear mi CV Gratis →
-            </Button>
+            <Link href="/editor">
+              <Button
+                variant="primary"
+                size="lg"
+                className="w-[210px] min-w-[210px]"
+              >
+                Crear mi CV Gratis →
+              </Button>
+            </Link>
             <a href="#formatos-cv">
               <Button
                 variant="surface"

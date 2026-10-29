@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <rect width="320" height="220" rx="8" fill="#F1F5F9"/>
+  <rect x="24" y="14" width="272" height="192" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+  <!-- Classic Blue Accent Bar Left -->
+  <rect x="25" y="15" width="8" height="190" fill="#1D4ED8"/>
+  <!-- Header -->
+  <rect x="44" y="26" width="132" height="9" rx="2" fill="#1E3A8A"/>
+  <rect x="44" y="40" width="98" height="5" rx="2" fill="#3B82F6"/>
+  <rect x="206" y="26" width="76" height="4" rx="2" fill="#64748B"/>
+  <rect x="206" y="34" width="76" height="4" rx="2" fill="#64748B"/>
+  <line x1="44" y1="54" x2="282" y2="54" stroke="#BFDBFE" stroke-width="1.5"/>
+  <!-- Profile Box -->
+  <rect x="44" y="62" width="238" height="26" rx="3" fill="#EFF6FF"/>
+  <rect x="52" y="69" width="218" height="4" rx="2" fill="#1E40AF"/>
+  <rect x="52" y="77" width="184" height="4" rx="2" fill="#3B82F6"/>
+  <!-- Experience Formal -->
+  <rect x="44" y="98" width="88" height="6" rx="2" fill="#1E3A8A"/>
+  <rect x="44" y="110" width="126" height="5" rx="2" fill="#334155"/>
+  <rect x="230" y="110" width="52" height="5" rx="2" fill="#64748B"/>
+  <rect x="44" y="120" width="224" height="4" rx="2" fill="#64748B"/>
+  <rect x="44" y="128" width="196" height="4" rx="2" fill="#94A3B8"/>
+  <!-- Education & References Bottom -->
+  <line x1="44" y1="142" x2="282" y2="142" stroke="#E2E8F0" stroke-width="1"/>
+  <rect x="44" y="150" width="110" height="42" rx="3" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="52" y="158" width="68" height="5" rx="2" fill="#1E3A8A"/>
+  <rect x="52" y="168" width="90" height="4" rx="2" fill="#64748B"/>
+  <rect x="164" y="150" width="118" height="42" rx="3" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="172" y="158" width="68" height="5" rx="2" fill="#1E3A8A"/>
+  <rect x="172" y="168" width="98" height="4" rx="2" fill="#64748B"/>
+</svg>

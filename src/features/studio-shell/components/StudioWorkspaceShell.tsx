@@ -1,21 +1,15 @@
 "use client";
 
 import React from "react";
-import { usePrimitivesDemoForm } from "../hooks/usePrimitivesDemoForm";
+import { useTemplateBank } from "@/features/cv-templates/hooks/useTemplateBank";
+import { TemplateBankGridSection } from "@/features/cv-templates/components/TemplateBankGridSection";
 import { StudioHeaderBar } from "./StudioHeaderBar";
 import { PrimitivesLivePlayground } from "./PrimitivesLivePlayground";
 import { LiveCvSheetPreview } from "./LiveCvSheetPreview";
-import { TemplateCatalogSection } from "./TemplateCatalogSection";
 import { StudioPhaseStatusCard } from "./StudioPhaseStatusCard";
 
 export function StudioWorkspaceShell() {
-  const {
-    selectedTemplateId,
-    activeCategory,
-    filteredTemplates,
-    setActiveCategory,
-    selectTemplate,
-  } = usePrimitivesDemoForm();
+  const bank = useTemplateBank();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -26,12 +20,11 @@ export function StudioWorkspaceShell() {
 
         <LiveCvSheetPreview />
 
-        <TemplateCatalogSection
-          templates={filteredTemplates}
-          selectedTemplateId={selectedTemplateId}
-          activeCategory={activeCategory}
-          onChangeCategory={setActiveCategory}
-          onSelectTemplate={selectTemplate}
+        <TemplateBankGridSection
+          presets={bank.filteredPresets}
+          activeCategory={bank.activeCategory}
+          mode="landing"
+          onChangeCategory={bank.setActiveCategory}
         />
 
         <StudioPhaseStatusCard />
