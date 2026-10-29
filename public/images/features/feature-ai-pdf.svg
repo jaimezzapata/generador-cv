@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" fill="none">
+  <rect width="360" height="180" rx="10" fill="#F8FAFC"/>
+  <!-- Left AI Card -->
+  <rect x="28" y="34" width="132" height="112" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+  <rect x="40" y="46" width="68" height="18" rx="9" fill="#F3E8FF"/>
+  <text x="74" y="58" text-anchor="middle" fill="#6D28D9" font-family="sans-serif" font-size="8.5" font-weight="bold">✨ IA Activa</text>
+  <rect x="40" y="74" width="108" height="6" rx="3" fill="#4C1D95"/>
+  <rect x="40" y="86" width="96" height="5" rx="2.5" fill="#7C3AED"/>
+  <rect x="40" y="96" width="104" height="5" rx="2.5" fill="#8B5CF6"/>
+  <rect x="40" y="114" width="84" height="18" rx="6" fill="#7C3AED"/>
+  <text x="82" y="126" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="8" font-weight="bold">Mejorar Logros</text>
+
+  <!-- Arrow Connector -->
+  <circle cx="184" cy="90" r="14" fill="#0F172A"/>
+  <text x="184" y="94" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold">→</text>
+
+  <!-- Right PDF Output Sheet -->
+  <rect x="212" y="26" width="120" height="128" rx="8" fill="#FFFFFF" stroke="#10B981" stroke-width="2"/>
+  <rect x="224" y="38" width="96" height="8" rx="3" fill="#0F172A"/>
+  <rect x="224" y="52" width="72" height="5" rx="2.5" fill="#64748B"/>
+  <line x1="224" y1="65" x2="320" y2="65" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="224" y="74" width="92" height="5" rx="2.5" fill="#334155"/>
+  <rect x="224" y="84" width="86" height="5" rx="2.5" fill="#64748B"/>
+  <rect x="224" y="94" width="78" height="5" rx="2.5" fill="#64748B"/>
+  <rect x="234" y="118" width="76" height="22" rx="6" fill="#10B981"/>
+  <text x="272" y="132" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="9" font-weight="bold">⬇ PDF LISTO</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" fill="none">
+  <rect width="360" height="180" rx="10" fill="#F8FAFC"/>
+  <!-- Sheet 1: SENA -->
+  <rect x="26" y="24" width="92" height="132" rx="6" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+  <rect x="34" y="34" width="76" height="14" rx="2" fill="#0F172A"/>
+  <text x="72" y="44" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="7" font-weight="bold">NORMA SENA</text>
+  <rect x="34" y="54" width="76" height="24" rx="2" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <rect x="34" y="84" width="76" height="26" rx="2" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <rect x="34" y="116" width="76" height="26" rx="2" fill="#F1F5F9" stroke="#CBD5E1"/>
+
+  <!-- Sheet 2: ATS -->
+  <rect x="134" y="24" width="92" height="132" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+  <rect x="154" y="34" width="52" height="6" rx="2" fill="#1E3A8A"/>
+  <line x1="142" y1="46" x2="218" y2="46" stroke="#2563EB" stroke-width="1.5"/>
+  <rect x="142" y="54" width="76" height="5" rx="2" fill="#64748B"/>
+  <rect x="142" y="64" width="68" height="5" rx="2" fill="#94A3B8"/>
+  <rect x="142" y="80" width="48" height="6" rx="2" fill="#1E3A8A"/>
+  <rect x="142" y="92" width="74" height="5" rx="2" fill="#64748B"/>
+  <rect x="142" y="102" width="64" height="5" rx="2" fill="#94A3B8"/>
+  <rect x="150" y="124" width="60" height="16" rx="8" fill="#DBEAFE"/>
+  <text x="180" y="135" text-anchor="middle" fill="#1E40AF" font-family="sans-serif" font-size="7.5" font-weight="bold">ATS 100%</text>
+
+  <!-- Sheet 3: Executive 2 Col -->
+  <rect x="242" y="24" width="92" height="132" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+  <path d="M243 29C243 26.7909 244.791 25 247 25H274V155H247C244.791 155 243 153.209 243 151V29Z" fill="#1E293B"/>
+  <circle cx="258" cy="46" r="9" fill="#38BDF8"/>
+  <rect x="249" y="64" width="18" height="3" rx="1.5" fill="#94A3B8"/>
+  <rect x="249" y="72" width="18" height="3" rx="1.5" fill="#94A3B8"/>
+  <rect x="282" y="36" width="40" height="6" rx="2" fill="#0F172A"/>
+  <rect x="282" y="48" width="44" height="4" rx="2" fill="#64748B"/>
+  <rect x="282" y="56" width="38" height="4" rx="2" fill="#94A3B8"/>
+  <rect x="282" y="74" width="42" height="5" rx="2" fill="#334155"/>
+  <rect x="282" y="84" width="44" height="4" rx="2" fill="#64748B"/>
+</svg>

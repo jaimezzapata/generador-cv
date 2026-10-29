@@ -1,4 +1,4 @@
-# Cronograma de Funcionalidad y Construcción — Generador de Hojas de Vida
+staba # Cronograma de Funcionalidad y Construcción — Generador de Hojas de Vida
 
 Este documento define la arquitectura por funcionalidades, el desglose de módulos y el cronograma de construcción incremental del proyecto, garantizando el cumplimiento estricto de las **5 Reglas Inquebrantables** definidas en `AGENTS.md`.
 

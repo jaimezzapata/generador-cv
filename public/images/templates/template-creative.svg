@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <rect width="320" height="220" rx="8" fill="#F1F5F9"/>
+  <rect x="24" y="14" width="272" height="192" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+  <!-- Top Modular Banner -->
+  <rect x="36" y="24" width="248" height="36" rx="6" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.2"/>
+  <circle cx="56" cy="42" r="11" fill="#6366F1"/>
+  <rect x="74" y="34" width="96" height="7" rx="2" fill="#1E1B4B"/>
+  <rect x="74" y="45" width="72" height="4" rx="2" fill="#4F46E5"/>
+  <rect x="224" y="34" width="48" height="16" rx="8" fill="#6366F1"/>
+  <!-- Bento Grid Drag & Drop Blocks -->
+  <rect x="36" y="68" width="144" height="64" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <rect x="46" y="78" width="76" height="6" rx="2" fill="#0F172A"/>
+  <rect x="46" y="90" width="122" height="4" rx="2" fill="#64748B"/>
+  <rect x="46" y="98" width="110" height="4" rx="2" fill="#64748B"/>
+  <rect x="46" y="112" width="44" height="10" rx="5" fill="#E0E7FF"/>
+  <rect x="96" y="112" width="44" height="10" rx="5" fill="#E0E7FF"/>
+  <!-- Right Bento Block -->
+  <rect x="188" y="68" width="96" height="64" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1.2"/>
+  <rect x="198" y="78" width="58" height="6" rx="2" fill="#064E3B"/>
+  <rect x="198" y="92" width="74" height="6" rx="3" fill="#10B981"/>
+  <rect x="198" y="104" width="60" height="6" rx="3" fill="#34D399"/>
+  <rect x="198" y="116" width="68" height="6" rx="3" fill="#A7F3D0"/>
+  <!-- Bottom Full Block -->
+  <rect x="36" y="140" width="248" height="54" rx="6" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.2"/>
+  <rect x="46" y="150" width="92" height="6" rx="2" fill="#78350F"/>
+  <rect x="46" y="162" width="220" height="4" rx="2" fill="#92400E"/>
+  <rect x="46" y="172" width="180" height="4" rx="2" fill="#B45309"/>
+</svg>

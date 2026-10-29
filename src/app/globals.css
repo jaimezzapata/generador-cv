@@ -1,26 +1,403 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   SISTEMA MULTI-ESTILO VISUAL (4 ESTILOS × 2 MODOS = 8 VARIANTES)
+   Mantiene la distribución visual intacta (cero cambio de proporciones)
+   aplicando las paletas cromáticas, texturas y sombras de referencia:
+   1. Minimalismo (Por defecto)
+   2. ArtPop (Pop Art Edition)
+   3. Brutalismo (Edición Brutalista)
+   4. Memphis (Edición Memphis 90s)
+   ========================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --border-width: 2px;
+  --border-style: solid;
+  --font-display: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* --------------------------------------------------------------------------
+   1. MINIMALISMO (Por Defecto) — Limpio, Editorial y Silencioso
+   -------------------------------------------------------------------------- */
+:root,
+[data-style="minimalist"][data-mode="light"] {
+  --bg-app: #f8fafc;
+  --bg-pattern: none;
+  --bg-pattern-size: 24px 24px;
+  --bg-header: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f1f5f9;
+  --bg-muted: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent-primary: #0f172a;
+  --accent-primary-fg: #ffffff;
+  --accent-secondary: #e2e8f0;
+  --accent-secondary-fg: #0f172a;
+  --accent-tertiary: #f1f5f9;
+  --border-color: #cbd5e1;
+  --border-strong: #0f172a;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-button: 8px;
+  --radius-card: 12px;
+  --shadow-surface: 0 4px 14px -2px rgba(15, 23, 42, 0.06);
+  --shadow-interactive: 0 8px 22px -4px rgba(15, 23, 42, 0.12);
+  --card-header-accent: linear-gradient(90deg, #0f172a 0%, #64748b 100%);
+  --header-ribbon: linear-gradient(90deg, #0f172a 0%, #475569 50%, #94a3b8 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-style="minimalist"][data-mode="dark"] {
+  --bg-app: #09090b;
+  --bg-pattern: none;
+  --bg-pattern-size: 24px 24px;
+  --bg-header: #121215;
+  --bg-surface: #121215;
+  --bg-elevated: #1b1b20;
+  --bg-muted: #27272a;
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent-primary: #fafafa;
+  --accent-primary-fg: #09090b;
+  --accent-secondary: #27272a;
+  --accent-secondary-fg: #fafafa;
+  --accent-tertiary: #1f1f23;
+  --border-color: #27272a;
+  --border-strong: #3f3f46;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-button: 8px;
+  --radius-card: 12px;
+  --shadow-surface: 0 6px 18px -2px rgba(0, 0, 0, 0.5);
+  --shadow-interactive: 0 10px 26px -4px rgba(0, 0, 0, 0.7);
+  --card-header-accent: linear-gradient(90deg, #fafafa 0%, #52525b 100%);
+  --header-ribbon: linear-gradient(90deg, #fafafa 0%, #52525b 100%);
 }
+
+/* --------------------------------------------------------------------------
+   2. ARTPOP (Pop Art Edition — Amarillo Intenso, Fucsia, Cian y Borde Negro)
+   -------------------------------------------------------------------------- */
+[data-style="artpop"][data-mode="light"] {
+  --bg-app: #ffe100;
+  --bg-pattern: radial-gradient(#c7a600 1.4px, transparent 1.4px);
+  --bg-pattern-size: 16px 16px;
+  --bg-header: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-elevated: #fdfcf0;
+  --bg-muted: #fef08a;
+  --text-primary: #000000;
+  --text-secondary: #1e293b;
+  --text-muted: #475569;
+  --accent-primary: #ff1476;
+  --accent-primary-fg: #ffffff;
+  --accent-secondary: #00d9ff;
+  --accent-secondary-fg: #000000;
+  --accent-tertiary: #ffe100;
+  --border-color: #000000;
+  --border-strong: #000000;
+  --radius-sm: 4px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-button: 4px;
+  --radius-card: 4px;
+  --shadow-surface: 6px 6px 0px #000000;
+  --shadow-interactive: 8px 8px 0px #000000;
+  --card-header-accent: linear-gradient(
+    90deg,
+    #00d9ff 0%,
+    #00d9ff 33%,
+    #ffe100 33%,
+    #ffe100 66%,
+    #ff1476 66%,
+    #ff1476 100%
+  );
+  --header-ribbon: repeating-linear-gradient(
+    -45deg,
+    #ff1476 0px,
+    #ff1476 8px,
+    #ffe100 8px,
+    #ffe100 16px
+  );
+}
+
+[data-style="artpop"][data-mode="dark"] {
+  --bg-app: #130924;
+  --bg-pattern: radial-gradient(#3b1d6e 1.5px, transparent 1.5px);
+  --bg-pattern-size: 16px 16px;
+  --bg-header: #1b1033;
+  --bg-surface: #1b1033;
+  --bg-elevated: #251645;
+  --bg-muted: #321d5c;
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --accent-primary: #ff1476;
+  --accent-primary-fg: #ffffff;
+  --accent-secondary: #00e5ff;
+  --accent-secondary-fg: #000000;
+  --accent-tertiary: #ffe100;
+  --border-color: #00e5ff;
+  --border-strong: #ffe100;
+  --radius-sm: 4px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-button: 4px;
+  --radius-card: 4px;
+  --shadow-surface: 6px 6px 0px #ff1476;
+  --shadow-interactive: 8px 8px 0px #ffe100;
+  --card-header-accent: linear-gradient(
+    90deg,
+    #00e5ff 0%,
+    #00e5ff 33%,
+    #ffe100 33%,
+    #ffe100 66%,
+    #ff1476 66%,
+    #ff1476 100%
+  );
+  --header-ribbon: repeating-linear-gradient(
+    -45deg,
+    #ff1476 0px,
+    #ff1476 8px,
+    #00e5ff 8px,
+    #00e5ff 16px
+  );
+}
+
+/* --------------------------------------------------------------------------
+   3. BRUTALISMO (Edición Brutalista — Cuadrícula Técnica, Negro y Amarillo)
+   -------------------------------------------------------------------------- */
+[data-style="brutalism"][data-mode="light"] {
+  --bg-app: #f8f9fa;
+  --bg-pattern: linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+    linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+  --bg-pattern-size: 32px 32px;
+  --bg-header: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f3f4f6;
+  --bg-muted: #e5e7eb;
+  --text-primary: #000000;
+  --text-secondary: #1f2937;
+  --text-muted: #4b5563;
+  --accent-primary: #000000;
+  --accent-primary-fg: #ffe100;
+  --accent-secondary: #ffe100;
+  --accent-secondary-fg: #000000;
+  --accent-tertiary: #e5e7eb;
+  --border-color: #000000;
+  --border-strong: #000000;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-button: 0px;
+  --radius-card: 0px;
+  --shadow-surface: 6px 6px 0px #000000;
+  --shadow-interactive: 8px 8px 0px #000000;
+  --card-header-accent: repeating-linear-gradient(
+    -45deg,
+    #000000 0px,
+    #000000 8px,
+    #ffe100 8px,
+    #ffe100 16px
+  );
+  --header-ribbon: repeating-linear-gradient(
+    -45deg,
+    #000000 0px,
+    #000000 8px,
+    #ffe100 8px,
+    #ffe100 16px
+  );
+}
+
+[data-style="brutalism"][data-mode="dark"] {
+  --bg-app: #0d0d0d;
+  --bg-pattern: linear-gradient(to right, #1f1f1f 1px, transparent 1px),
+    linear-gradient(to bottom, #1f1f1f 1px, transparent 1px);
+  --bg-pattern-size: 32px 32px;
+  --bg-header: #141414;
+  --bg-surface: #141414;
+  --bg-elevated: #1f1f1f;
+  --bg-muted: #292929;
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d4;
+  --text-muted: #a3a3a3;
+  --accent-primary: #ffe100;
+  --accent-primary-fg: #000000;
+  --accent-secondary: #262626;
+  --accent-secondary-fg: #ffe100;
+  --accent-tertiary: #333333;
+  --border-color: #ffe100;
+  --border-strong: #ffffff;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-button: 0px;
+  --radius-card: 0px;
+  --shadow-surface: 6px 6px 0px #ffe100;
+  --shadow-interactive: 8px 8px 0px #ffffff;
+  --card-header-accent: repeating-linear-gradient(
+    -45deg,
+    #ffe100 0px,
+    #ffe100 8px,
+    #141414 8px,
+    #141414 16px
+  );
+  --header-ribbon: repeating-linear-gradient(
+    -45deg,
+    #000000 0px,
+    #000000 8px,
+    #ffe100 8px,
+    #ffe100 16px
+  );
+}
+
+/* --------------------------------------------------------------------------
+   4. MEMPHIS (Edición Memphis 90s — Crema, Coral, Celeste y Sombra Violeta)
+   -------------------------------------------------------------------------- */
+[data-style="memphis"][data-mode="light"] {
+  --bg-app: #fff8ee;
+  --bg-pattern: radial-gradient(#ff6b8b 1.5px, transparent 1.5px);
+  --bg-pattern-size: 24px 24px;
+  --bg-header: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-elevated: #fef6d8;
+  --bg-muted: #ffedd5;
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #4b5563;
+  --accent-primary: #ff3b6b;
+  --accent-primary-fg: #ffffff;
+  --accent-secondary: #29b6f6;
+  --accent-secondary-fg: #111827;
+  --accent-tertiary: #ffe100;
+  --border-color: #111827;
+  --border-strong: #111827;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-button: 10px;
+  --radius-card: 14px;
+  --shadow-surface: 6px 6px 0px #a855f7;
+  --shadow-interactive: 6px 6px 0px #ff3b6b;
+  --card-header-accent: linear-gradient(
+    90deg,
+    #29b6f6 0%,
+    #29b6f6 33%,
+    #ffe100 33%,
+    #ffe100 66%,
+    #ff3b6b 66%,
+    #ff3b6b 100%
+  );
+  --header-ribbon: repeating-linear-gradient(
+    -45deg,
+    #ff3b6b 0px,
+    #ff3b6b 8px,
+    #ffe100 8px,
+    #ffe100 16px,
+    #29b6f6 16px,
+    #29b6f6 24px
+  );
+}
+
+[data-style="memphis"][data-mode="dark"] {
+  --bg-app: #1b1429;
+  --bg-pattern: radial-gradient(#ff3b6b 1.5px, transparent 1.5px);
+  --bg-pattern-size: 24px 24px;
+  --bg-header: #241b38;
+  --bg-surface: #241b38;
+  --bg-elevated: #30244a;
+  --bg-muted: #3d2e5e;
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --accent-primary: #ff3b6b;
+  --accent-primary-fg: #ffffff;
+  --accent-secondary: #29b6f6;
+  --accent-secondary-fg: #111827;
+  --accent-tertiary: #ffe100;
+  --border-color: #ffe100;
+  --border-strong: #29b6f6;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-button: 10px;
+  --radius-card: 14px;
+  --shadow-surface: 6px 6px 0px #a855f7;
+  --shadow-interactive: 6px 6px 0px #29b6f6;
+  --card-header-accent: linear-gradient(
+    90deg,
+    #29b6f6 0%,
+    #29b6f6 33%,
+    #ffe100 33%,
+    #ffe100 66%,
+    #ff3b6b 66%,
+    #ff3b6b 100%
+  );
+  --header-ribbon: repeating-linear-gradient(
+    -45deg,
+    #ff3b6b 0px,
+    #ff3b6b 8px,
+    #ffe100 8px,
+    #ffe100 16px,
+    #29b6f6 16px,
+    #29b6f6 24px
+  );
+}
+
+/* ==========================================================================
+   CLASES UTILITARIAS SEMÁNTICAS (PROPORCIONES CONSTANTES EN LOS 8 TEMAS)
+   ========================================================================== */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-app);
+  background-image: var(--bg-pattern);
+  background-size: var(--bg-pattern-size);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.theme-surface {
+  box-sizing: border-box;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 2.5px solid var(--border-color);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-surface);
+}
+
+.theme-elevated {
+  box-sizing: border-box;
+  background-color: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 2.5px solid var(--border-color);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-interactive);
+}
+
+.theme-heading {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.theme-button-interactive {
+  box-sizing: border-box;
+  font-family: var(--font-display);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-button);
+  box-shadow: var(--shadow-surface);
+  transition: transform 0.14s ease, box-shadow 0.14s ease, background-color 0.14s ease;
+}
+
+.theme-button-interactive:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-interactive);
+}
+
+.theme-button-interactive:active:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: none;
 }
