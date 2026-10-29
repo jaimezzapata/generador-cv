@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { X } from "lucide-react";
 import { Badge } from "@/shared/components/ui/Badge";
 import { Button } from "@/shared/components/ui/Button";
 import { Card, CardHeader, CardTitle } from "@/shared/components/ui/Card";
@@ -104,9 +105,9 @@ export function SkillsBlockForm({
               type="button"
               onClick={() => onRemoveSkill(skill.id)}
               aria-label={`Eliminar ${skill.name}`}
-              className="font-black cursor-pointer px-1"
+              className="cursor-pointer p-0.5 hover:opacity-70"
             >
-              ✕
+              <X className="w-3.5 h-3.5" />
             </button>
           </div>
         ))}

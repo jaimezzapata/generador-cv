@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Award } from "lucide-react";
 import { CvDocument } from "@/features/cv-document/types/cvDocument.types";
 import { PaperSectionHeading } from "./PaperSectionHeading";
 
@@ -54,7 +55,12 @@ export function PaperTrajectoryBlocksRenderer({
                 {exp.company} {exp.city ? `· ${exp.city}` : ""}
               </div>
               {exp.description && <p className={`mt-1 leading-relaxed ${subText}`}>{exp.description}</p>}
-              {exp.achievements && <p className="mt-1 font-semibold text-[11px]">★ Logros: {exp.achievements}</p>}
+              {exp.achievements && (
+                <p className="mt-1 font-semibold text-[11px] inline-flex items-center gap-1">
+                  <Award className="w-3 h-3 shrink-0" />
+                  <span>Logros: {exp.achievements}</span>
+                </p>
+              )}
               {(exp.immediateBoss || exp.verificationPhone) && (
                 <p className={`mt-0.5 text-[10px] ${subText}`}>
                   Soporte: {exp.immediateBoss} {exp.verificationPhone ? `(${exp.verificationPhone})` : ""}

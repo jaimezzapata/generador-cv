@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { X } from "lucide-react";
 import { Button } from "@/shared/components/ui/Button";
 import { CvTemplateId } from "@/features/cv-document/types/cvDocument.types";
 import { useTemplateBank } from "../hooks/useTemplateBank";
@@ -59,9 +60,10 @@ export function TemplateBankModal({
             variant="surface"
             size="sm"
             onClick={onClose}
-            className="w-[104px] min-w-[104px]"
+            className="w-[104px] min-w-[104px] gap-1.5"
           >
-            Cerrar ✕
+            <X className="w-3.5 h-3.5" />
+            Cerrar
           </Button>
         </div>
 

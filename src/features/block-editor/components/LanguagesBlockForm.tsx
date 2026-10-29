@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { X } from "lucide-react";
 import { Badge } from "@/shared/components/ui/Badge";
 import { Button } from "@/shared/components/ui/Button";
 import { Card, CardHeader, CardTitle } from "@/shared/components/ui/Card";
@@ -95,9 +96,10 @@ export function LanguagesBlockForm({
             <button
               type="button"
               onClick={() => onRemoveLanguage(lng.id)}
-              className="font-black px-2 py-0.5 cursor-pointer"
+              aria-label={`Eliminar ${lng.name}`}
+              className="cursor-pointer p-1 hover:opacity-70"
             >
-              ✕
+              <X className="w-3.5 h-3.5" />
             </button>
           </div>
         ))}

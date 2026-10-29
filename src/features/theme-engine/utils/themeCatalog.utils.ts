@@ -18,7 +18,7 @@ export const VISUAL_STYLES_CATALOG: VisualStyleMetadata[] = [
     icon: "○",
     editionLabel: "EDICIÓN MINIMALISTA",
     designTagLabel: "MINIMAL DESIGN",
-    stampLabel: "✨ 100% PERSONALIZABLE + IA",
+    stampLabel: "100% PERSONALIZABLE + IA",
     tagline: "Claridad editorial, aire y precisión profesional",
     description:
       "Diseño limpio y silencioso por defecto con enfoque total en tu contenido.",
@@ -44,10 +44,10 @@ export const VISUAL_STYLES_CATALOG: VisualStyleMetadata[] = [
     id: "artpop",
     name: "ArtPop",
     shortLabel: "ART POP",
-    icon: "⚡",
+    icon: "◇",
     editionLabel: "POP ART EDITION",
     designTagLabel: "ART POP DESIGN",
-    stampLabel: "✨ 100% PERSONALIZABLE + IA",
+    stampLabel: "100% PERSONALIZABLE + IA",
     tagline: "Energía Pop Art con amarillo intenso, fucsia y cian",
     description:
       "Fondo amarillo vibrante con trama de puntos, sombras negras sólidas y acentos fucsia y cian.",
@@ -76,7 +76,7 @@ export const VISUAL_STYLES_CATALOG: VisualStyleMetadata[] = [
     icon: "□",
     editionLabel: "EDICIÓN BRUTALISTA",
     designTagLabel: "BRUTALISMO DESIGN",
-    stampLabel: "✨ [100% NORMA SENA & PDF]",
+    stampLabel: "[100% NORMA SENA & PDF]",
     tagline: "Cuadrícula técnica, cinta de precaución y bloques crudos",
     description:
       "Fondo cuadriculado arquitectónico, bordes negros rectos a 0px y alto contraste amarillo/negro.",
@@ -105,7 +105,7 @@ export const VISUAL_STYLES_CATALOG: VisualStyleMetadata[] = [
     icon: "△",
     editionLabel: "EDICIÓN MEMPHIS 90S",
     designTagLabel: "MEMPHIS DESIGN",
-    stampLabel: "✨ 100% PERSONALIZABLE + IA",
+    stampLabel: "100% PERSONALIZABLE + IA",
     tagline: "Estética años 90 con tonos crema, coral, celeste y sombra púrpura",
     description:
       "Fondo crema con puntos corales, contenedor con sombra violeta y tarjetas pastel redondeadas.",

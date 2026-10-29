@@ -5,6 +5,7 @@ import { ThemeControlBar } from "@/features/theme-engine/components/ThemeControl
 import { useThemeEngine } from "@/features/theme-engine/hooks/useThemeEngine";
 
 const HEADER_NAV_LINKS = [
+  { href: "/builder", label: "Lienzo Drag & Drop" },
   { href: "#funcionalidades", label: "Funcionalidades" },
   { href: "#formatos-cv", label: "Plantillas SENA" },
   { href: "#como-funciona", label: "Pasos" },
@@ -76,16 +77,6 @@ export function StudioHeaderBar() {
           </div>
         </div>
       </div>
-
-      {/* Cinta decorativa inferior según el estilo activo */}
-      <div
-        className="w-full h-2"
-        style={{
-          background: "var(--header-ribbon)",
-          borderTop: "2px solid var(--border-color)",
-          borderBottom: "2px solid var(--border-color)",
-        }}
-      />
     </header>
   );
 }

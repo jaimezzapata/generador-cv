@@ -102,6 +102,20 @@ export function getDefaultDesignForTemplate(
         showSkillBars: false,
         referencesOnRequest: false,
       };
+    case "minerva":
+      return {
+        accentColor: "#1e3a8a",
+        sidebarBgColor: "#f1f5f9",
+        fontFamily: "sans",
+        headerStyle: "minerva",
+        sectionTitleStyle: "filled_box",
+        density: "compact",
+        twoColumnLayout: false,
+        showPhoto: true,
+        photoShape: "square",
+        showSkillBars: false,
+        referencesOnRequest: false,
+      };
   }
 }
 
@@ -215,15 +229,15 @@ export function createEmptyCustomSection(): CustomSectionBlock {
 
 export function createDefaultBlocks(): CvBlockConfig[] {
   return [
-    { id: "blk_profile", type: "profile", title: "Perfil Profesional", visible: true, zone: "main" },
-    { id: "blk_experience", type: "experience", title: "Experiencia Laboral", visible: true, zone: "main" },
-    { id: "blk_education", type: "education", title: "Formación Académica", visible: true, zone: "main" },
-    { id: "blk_projects", type: "projects", title: "Proyectos Destacados", visible: true, zone: "main" },
-    { id: "blk_skills", type: "skills", title: "Competencias y Herramientas", visible: true, zone: "sidebar" },
-    { id: "blk_languages", type: "languages", title: "Idiomas", visible: true, zone: "sidebar" },
-    { id: "blk_certifications", type: "certifications", title: "Certificaciones y Cursos", visible: true, zone: "sidebar" },
-    { id: "blk_references", type: "references", title: "Referencias", visible: true, zone: "main" },
-    { id: "blk_custom", type: "custom", title: "Secciones Adicionales", visible: false, zone: "main" },
+    { id: "blk_profile", type: "profile", title: "Perfil Profesional", visible: true, zone: "main", colSpan: "full", variant: "default" },
+    { id: "blk_experience", type: "experience", title: "Experiencia Laboral", visible: true, zone: "main", colSpan: "full", variant: "default" },
+    { id: "blk_education", type: "education", title: "Formación Académica", visible: true, zone: "main", colSpan: "full", variant: "default" },
+    { id: "blk_projects", type: "projects", title: "Proyectos Destacados", visible: true, zone: "main", colSpan: "full", variant: "default" },
+    { id: "blk_skills", type: "skills", title: "Competencias y Herramientas", visible: true, zone: "sidebar", colSpan: "full", variant: "default" },
+    { id: "blk_languages", type: "languages", title: "Idiomas", visible: true, zone: "sidebar", colSpan: "full", variant: "default" },
+    { id: "blk_certifications", type: "certifications", title: "Certificaciones y Cursos", visible: true, zone: "sidebar", colSpan: "full", variant: "default" },
+    { id: "blk_references", type: "references", title: "Referencias", visible: true, zone: "main", colSpan: "full", variant: "default" },
+    { id: "blk_custom", type: "custom", title: "Secciones Adicionales", visible: false, zone: "main", colSpan: "full", variant: "default" },
   ];
 }
 

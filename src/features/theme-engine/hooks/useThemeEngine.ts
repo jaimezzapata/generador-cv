@@ -32,6 +32,10 @@ export function useThemeStateController(): ThemeContextContract {
   );
 
   useEffect(() => {
+    themeStorageService.hydrateClientStorage();
+  }, []);
+
+  useEffect(() => {
     applyThemeAttributesToDom(theme);
   }, [theme]);
 

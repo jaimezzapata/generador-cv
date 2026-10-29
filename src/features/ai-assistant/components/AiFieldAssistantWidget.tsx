@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Sparkles, Wand2 } from "lucide-react";
 import { Button } from "@/shared/components/ui/Button";
 import { Input } from "@/shared/components/ui/Input";
 import { Select } from "@/shared/components/ui/Select";
@@ -49,7 +50,7 @@ export function AiFieldAssistantWidget(props: AiFieldAssistantWidgetProps) {
             borderRadius: "var(--radius-pill)",
           }}
         >
-          <span>✨</span>
+          <Sparkles className="w-3.5 h-3.5" />
           <span>{ai.isOpen ? "Cerrar Asistente IA" : props.buttonLabel ?? "Redactar con IA"}</span>
         </button>
       </div>
@@ -63,8 +64,9 @@ export function AiFieldAssistantWidget(props: AiFieldAssistantWidgetProps) {
             borderRadius: "var(--radius-card)",
           }}
         >
-          <span className="text-xs font-extrabold uppercase tracking-wide theme-heading">
-            ✨ {meta.title}
+          <span className="text-xs font-extrabold uppercase tracking-wide theme-heading inline-flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5" />
+            {meta.title}
           </span>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 items-end">
@@ -93,8 +95,10 @@ export function AiFieldAssistantWidget(props: AiFieldAssistantWidgetProps) {
               size="sm"
               disabled={ai.isLoading}
               onClick={ai.generateDrafts}
+              className="gap-1.5"
             >
-              {ai.isLoading ? "Redactando..." : "⚡ Generar 3 Propuestas IA"}
+              <Wand2 className="w-3.5 h-3.5" />
+              {ai.isLoading ? "Redactando..." : "Generar 3 Propuestas IA"}
             </Button>
           </div>
 
@@ -113,4 +117,3 @@ export function AiFieldAssistantWidget(props: AiFieldAssistantWidgetProps) {
     </div>
   );
 }
-

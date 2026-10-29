@@ -4,6 +4,7 @@ import React from "react";
 import { useCvDocument } from "@/features/cv-document/hooks/useCvDocument";
 import { useTemplateBank } from "@/features/cv-templates/hooks/useTemplateBank";
 import { TemplateBankModal } from "@/features/cv-templates/components/TemplateBankModal";
+import { usePdfExport } from "@/features/pdf-export/hooks/usePdfExport";
 import { useBlockEditorNavigation } from "../hooks/useBlockEditorNavigation";
 import { EditorTopBar } from "./EditorTopBar";
 import { BlockNavigationSidebar } from "./BlockNavigationSidebar";
@@ -15,6 +16,9 @@ export function BlockEditorWorkspace() {
   const nav = useBlockEditorNavigation(cv.addSkill, cv.addLanguage);
   const bank = useTemplateBank();
   const { document, completion } = cv;
+  const pdf = usePdfExport({
+    fileName: `Hoja_de_Vida_${document.personalInfo.fullName || "CV"}`,
+  });
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -80,11 +84,8 @@ export function BlockEditorWorkspace() {
             onToggleFullPreview={() =>
               nav.setFullPreviewMode(!nav.fullPreviewMode)
             }
-            onOpenTemplateBank={bank.openModal}
-            onOpenDesignTab={() => {
-              nav.setFullPreviewMode(false);
-              nav.setActiveTab("design");
-            }}
+            onExportPdf={pdf.triggerDownload}
+            isExportingPdf={pdf.isExporting}
           />
         </aside>
       </main>

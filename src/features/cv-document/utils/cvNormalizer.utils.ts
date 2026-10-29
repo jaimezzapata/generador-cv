@@ -40,7 +40,11 @@ export function normalizeCvDocument(
       ...base.personalInfo,
       ...(partial.personalInfo ?? {}),
     },
-    blocks: mergedBlocks,
+    blocks: mergedBlocks.map((b) => ({
+      ...b,
+      colSpan: b.colSpan ?? "full",
+      variant: b.variant ?? "default",
+    })),
     experiences: Array.isArray(partial.experiences)
       ? partial.experiences.map((exp) => ({
           ...base.experiences[0],

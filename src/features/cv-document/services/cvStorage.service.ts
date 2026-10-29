@@ -8,6 +8,7 @@ const CV_DOCUMENT_STORAGE_KEY = "generador_cv_document_v3";
 type Listener = () => void;
 
 let cachedClientDoc: CvDocument | null = null;
+let hasHydrated = false;
 const serverSnapshots = new Map<CvTemplateId, CvDocument>();
 const listeners = new Set<Listener>();
 
@@ -50,13 +51,24 @@ export const cvStorageService = {
   },
 
   getClientSnapshot(fallbackTemplate: CvTemplateId = "sena"): CvDocument {
+    if (!hasHydrated) {
+      return this.getServerSnapshot(fallbackTemplate);
+    }
     if (!cachedClientDoc) {
       cachedClientDoc = readInitialFromStorage(fallbackTemplate);
     }
     return cachedClientDoc;
   },
 
+  hydrateClientStorage(fallbackTemplate: CvTemplateId = "sena"): void {
+    if (typeof window === "undefined" || hasHydrated) return;
+    hasHydrated = true;
+    cachedClientDoc = readInitialFromStorage(fallbackTemplate);
+    emitChange();
+  },
+
   saveDocument(doc: CvDocument): void {
+    hasHydrated = true;
     cachedClientDoc = doc;
     if (typeof window !== "undefined") {
       try {

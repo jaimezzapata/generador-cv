@@ -4,7 +4,8 @@ export type CvTemplateId =
   | "executive"
   | "creative"
   | "first_job"
-  | "administrative";
+  | "administrative"
+  | "minerva";
 
 export type DocumentIdType = "CC" | "CE" | "TI" | "PEP" | "PPT" | "PAS";
 
@@ -31,7 +32,12 @@ export type CvBlockType =
 
 export type CvFontFamily = "sans" | "serif" | "mono";
 export type CvPhotoShape = "circle" | "rounded" | "square";
-export type CvHeaderStyle = "split" | "banner" | "centered" | "boxed_sena";
+export type CvHeaderStyle =
+  | "split"
+  | "banner"
+  | "centered"
+  | "boxed_sena"
+  | "minerva";
 export type CvSectionTitleStyle = "underline" | "filled_box" | "left_bar" | "pill";
 export type CvDensity = "compact" | "standard" | "spacious";
 
@@ -181,12 +187,17 @@ export interface CustomSectionBlock {
   content: string;
 }
 
+export type BlockColSpan = "full" | "half" | "third" | "two_thirds";
+export type BlockVisualVariant = "default" | "card" | "bordered";
+
 export interface CvBlockConfig {
   id: string;
   type: CvBlockType;
   title: string;
   visible: boolean;
   zone: "main" | "sidebar";
+  colSpan?: BlockColSpan;
+  variant?: BlockVisualVariant;
 }
 
 export interface CvDocument {

@@ -11,6 +11,7 @@ import {
 import {
   CertificationItem,
   CustomSectionBlock,
+  CvBlockConfig,
   CvDesignSettings,
   CvDocument,
   CvTemplateId,
@@ -32,6 +33,7 @@ import {
   createEmptyProjectItem,
   createEmptyReferenceItem,
   createEmptySkillItem,
+  createDefaultBlocks,
   getDefaultDesignForTemplate,
 } from "../utils/cvDefaults.utils";
 import {
@@ -71,6 +73,18 @@ export interface CvDocumentContextContract {
   toggleBlockVisibility: (blockId: string) => void;
   toggleBlockZone: (blockId: string) => void;
   moveBlockOrder: (blockId: string, direction: "up" | "down") => void;
+  reorderBlocks: (newBlocks: CvBlockConfig[]) => void;
+  placeBlock: (
+    blockId: string,
+    zone: "main" | "sidebar",
+    targetIndex?: number
+  ) => void;
+  clearAllBlocks: () => void;
+  restoreAllBlocks: () => void;
+  updateBlockConfig: (blockId: string, patch: Partial<CvBlockConfig>) => void;
+  applyModularGridPreset: (
+    preset: "standard" | "mosaic_pairs" | "compact_triptych"
+  ) => void;
   addExperience: () => void;
   updateExperience: (id: string, patch: Partial<ExperienceItem>) => void;
   removeExperience: (id: string) => void;
@@ -117,8 +131,9 @@ export function useCvDocumentController(
   );
 
   useEffect(() => {
+    cvStorageService.hydrateClientStorage(fallbackTemplate);
     cvStorageService.applyRouteParams(initialTemplate, forcePresetLoad);
-  }, [forcePresetLoad, initialTemplate]);
+  }, [fallbackTemplate, forcePresetLoad, initialTemplate]);
 
   const appendItem = useCallback(
     <K extends ListCollectionKey>(key: K, newItem: CvDocument[K][number]) => {
@@ -222,6 +237,103 @@ export function useCvDocumentController(
     []
   );
 
+  const reorderBlocks = useCallback((newBlocks: CvBlockConfig[]) => {
+    cvStorageService.updateDocument((prev) => ({
+      ...prev,
+      blocks: newBlocks,
+    }));
+  }, []);
+
+  const placeBlock = useCallback(
+    (blockId: string, zone: "main" | "sidebar", targetIndex?: number) => {
+      cvStorageService.updateDocument((prev) => {
+        const existingIdx = prev.blocks.findIndex((b) => b.id === blockId);
+        if (existingIdx < 0) return prev;
+        const targetBlock = {
+          ...prev.blocks[existingIdx],
+          visible: true,
+          zone,
+        };
+        const remaining = prev.blocks.filter((b) => b.id !== blockId);
+        if (typeof targetIndex === "number" && targetIndex >= 0) {
+          remaining.splice(targetIndex, 0, targetBlock);
+          return { ...prev, blocks: remaining };
+        }
+        return { ...prev, blocks: [...remaining, targetBlock] };
+      });
+    },
+    []
+  );
+
+  const clearAllBlocks = useCallback(() => {
+    cvStorageService.updateDocument((prev) => ({
+      ...prev,
+      blocks: prev.blocks.map((b) => ({ ...b, visible: false })),
+    }));
+  }, []);
+
+  const restoreAllBlocks = useCallback(() => {
+    cvStorageService.updateDocument((prev) => ({
+      ...prev,
+      blocks: createDefaultBlocks(),
+    }));
+  }, []);
+
+  const updateBlockConfig = useCallback(
+    (blockId: string, patch: Partial<CvBlockConfig>) => {
+      cvStorageService.updateDocument((prev) => ({
+        ...prev,
+        blocks: prev.blocks.map((blk) =>
+          blk.id === blockId ? { ...blk, ...patch } : blk
+        ),
+      }));
+    },
+    []
+  );
+
+  const applyModularGridPreset = useCallback(
+    (preset: "standard" | "mosaic_pairs" | "compact_triptych") => {
+      cvStorageService.updateDocument((prev) => ({
+        ...prev,
+        blocks: prev.blocks.map((blk) => {
+          if (preset === "standard") {
+            return { ...blk, colSpan: "full", variant: "default" };
+          }
+          if (preset === "mosaic_pairs") {
+            const isPairable =
+              blk.type === "skills" ||
+              blk.type === "languages" ||
+              blk.type === "certifications" ||
+              blk.type === "references" ||
+              blk.type === "projects";
+            return {
+              ...blk,
+              colSpan: isPairable ? "half" : "full",
+              variant: isPairable ? "card" : "default",
+            };
+          }
+          if (preset === "compact_triptych") {
+            const isTriptych =
+              blk.type === "skills" ||
+              blk.type === "languages" ||
+              blk.type === "certifications";
+            return {
+              ...blk,
+              colSpan: isTriptych
+                ? "third"
+                : blk.type === "references"
+                ? "half"
+                : "full",
+              variant: isTriptych ? "card" : "default",
+            };
+          }
+          return blk;
+        }),
+      }));
+    },
+    []
+  );
+
   const loadPredefinedTemplate = useCallback((templateId: CvTemplateId) => {
     cvStorageService.loadPresetFresh(templateId);
   }, []);
@@ -246,6 +358,12 @@ export function useCvDocumentController(
     toggleBlockVisibility,
     toggleBlockZone,
     moveBlockOrder,
+    reorderBlocks,
+    placeBlock,
+    clearAllBlocks,
+    restoreAllBlocks,
+    updateBlockConfig,
+    applyModularGridPreset,
     addExperience: () => appendItem("experiences", createEmptyExperienceItem()),
     updateExperience: (id, patch) => patchItem("experiences", id, patch),
     removeExperience: (id) => deleteItem("experiences", id),

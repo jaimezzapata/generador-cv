@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { FileText } from "lucide-react";
 import { Badge } from "@/shared/components/ui/Badge";
 import { Button } from "@/shared/components/ui/Button";
 import { Card } from "@/shared/components/ui/Card";
@@ -60,10 +61,11 @@ export function TemplatePresetCard({
         </p>
 
         <span
-          className="text-[11px] font-bold"
+          className="text-[11px] font-bold inline-flex items-center gap-1.5"
           style={{ color: "var(--text-muted)" }}
         >
-          📋 {preset.sampleRoleLabel}
+          <FileText className="w-3.5 h-3.5" />
+          {preset.sampleRoleLabel}
         </span>
       </div>
 

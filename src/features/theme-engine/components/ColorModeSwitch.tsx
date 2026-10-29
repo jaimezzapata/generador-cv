@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Moon, Sun } from "lucide-react";
 import { Button } from "@/shared/components/ui/Button";
 import { useThemeEngine } from "../hooks/useThemeEngine";
 
@@ -15,11 +16,13 @@ export function ColorModeSwitch() {
       onClick={toggleMode}
       aria-label={isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
       title={isDark ? "Modo Oscuro activo" : "Modo Claro activo"}
-      className="w-[116px] min-w-[116px] h-9 px-2.5"
+      className="h-8 px-2.5 text-xs font-bold gap-1.5 shrink-0 whitespace-nowrap"
     >
-      <span aria-hidden="true" className="shrink-0">
-        {isDark ? "🌙" : "☀️"}
-      </span>
+      {isDark ? (
+        <Moon className="w-3.5 h-3.5 shrink-0" />
+      ) : (
+        <Sun className="w-3.5 h-3.5 shrink-0" />
+      )}
       <span>{isDark ? "Oscuro" : "Claro"}</span>
     </Button>
   );

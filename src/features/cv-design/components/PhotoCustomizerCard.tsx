@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Check, EyeOff, Trash2, Upload } from "lucide-react";
 import { Button } from "@/shared/components/ui/Button";
 import { Card, CardHeader, CardTitle } from "@/shared/components/ui/Card";
 import { CvPhotoShape } from "@/features/cv-document/types/cvDocument.types";
@@ -39,7 +40,7 @@ export function PhotoCustomizerCard({
         <button
           type="button"
           onClick={() => onToggleShowPhoto(!showPhoto)}
-          className="px-3 py-1 text-xs font-extrabold cursor-pointer"
+          className="px-3 py-1 text-xs font-extrabold cursor-pointer inline-flex items-center gap-1.5"
           style={{
             backgroundColor: showPhoto ? "var(--accent-primary)" : "var(--bg-surface-elevated)",
             color: showPhoto ? "var(--accent-primary-fg)" : "var(--text-secondary)",
@@ -47,7 +48,17 @@ export function PhotoCustomizerCard({
             borderRadius: "var(--radius-pill)",
           }}
         >
-          {showPhoto ? "✓ Foto Visible" : "Foto Oculta (ATS)"}
+          {showPhoto ? (
+            <>
+              <Check className="w-3.5 h-3.5" />
+              Foto Visible
+            </>
+          ) : (
+            <>
+              <EyeOff className="w-3.5 h-3.5" />
+              Foto Oculta (ATS)
+            </>
+          )}
         </button>
       </CardHeader>
 
@@ -68,13 +79,14 @@ export function PhotoCustomizerCard({
           <div className="flex flex-wrap gap-2">
             <label
               htmlFor={inputId}
-              className="h-9 min-w-[140px] px-3 text-xs font-semibold inline-flex items-center justify-center cursor-pointer theme-button-interactive"
+              className="h-9 min-w-[140px] px-3 text-xs font-semibold inline-flex items-center justify-center gap-1.5 cursor-pointer theme-button-interactive"
               style={{
                 backgroundColor: "var(--accent-primary)",
                 color: "var(--accent-primary-fg)",
               }}
             >
-              📷 Subir Mi Foto
+              <Upload className="w-3.5 h-3.5" />
+              Subir Mi Foto
               <input
                 id={inputId}
                 type="file"
@@ -84,7 +96,8 @@ export function PhotoCustomizerCard({
               />
             </label>
             {photoDataUrl && (
-              <Button variant="surface" size="sm" onClick={removePhoto}>
+              <Button variant="surface" size="sm" onClick={removePhoto} className="gap-1.5">
+                <Trash2 className="w-3.5 h-3.5" />
                 Quitar Foto
               </Button>
             )}

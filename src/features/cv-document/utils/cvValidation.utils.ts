@@ -12,7 +12,8 @@ export function isValidTemplateId(value: unknown): value is CvTemplateId {
     value === "executive" ||
     value === "creative" ||
     value === "first_job" ||
-    value === "administrative"
+    value === "administrative" ||
+    value === "minerva"
   );
 }
 

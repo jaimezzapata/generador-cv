@@ -10,6 +10,7 @@ const THEME_STORAGE_KEY = "generador_cv_theme_v2";
 type Listener = () => void;
 
 let cachedTheme: ThemeState | null = null;
+let hasHydrated = false;
 const listeners = new Set<Listener>();
 
 function emitChange(): void {
@@ -52,14 +53,26 @@ export const themeStorageService = {
   },
 
   getClientSnapshot(): ThemeState {
+    if (!hasHydrated) {
+      return DEFAULT_THEME_STATE;
+    }
     if (!cachedTheme) {
       cachedTheme = readThemeFromStorage();
     }
     return cachedTheme;
   },
 
+  hydrateClientStorage(): void {
+    if (typeof window === "undefined" || hasHydrated) return;
+    hasHydrated = true;
+    cachedTheme = readThemeFromStorage();
+    emitChange();
+  },
+
   updateTheme(updater: (prev: ThemeState) => ThemeState): void {
-    const next = updater(this.getClientSnapshot());
+    hasHydrated = true;
+    const current = cachedTheme ?? readThemeFromStorage();
+    const next = updater(current);
     cachedTheme = next;
 
     if (typeof window !== "undefined") {

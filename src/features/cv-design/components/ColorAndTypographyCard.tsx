@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Check } from "lucide-react";
 import { Card, CardHeader, CardTitle } from "@/shared/components/ui/Card";
 import { Select } from "@/shared/components/ui/Select";
 import {
@@ -50,7 +51,7 @@ export function ColorAndTypographyCard({
                   transform: active ? "scale(1.12)" : "scale(1)",
                 }}
               >
-                {active && <span className="text-white text-xs font-black">✓</span>}
+                {active && <Check className="w-3.5 h-3.5 text-white stroke-[3]" />}
               </button>
             );
           })}

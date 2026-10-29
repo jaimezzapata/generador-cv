@@ -13,10 +13,10 @@ export interface ColorSwatchOption {
 }
 
 export const CV_ACCENT_SWATCHES: ColorSwatchOption[] = [
+  { id: "navy_inst", label: "Azul Minerva 1003", hex: "#1e3a8a" },
   { id: "emerald_sena", label: "Verde SENA", hex: "#15803d" },
   { id: "royal_blue", label: "Azul Corporativo", hex: "#1d4ed8" },
   { id: "sky_exec", label: "Cian Ejecutivo", hex: "#0284c7" },
-  { id: "navy_inst", label: "Azul Institucional", hex: "#1e3a8a" },
   { id: "violet_tech", label: "Violeta Tech", hex: "#7c3aed" },
   { id: "crimson_ed", label: "Burdeos Editorial", hex: "#be123c" },
   { id: "amber_warm", label: "Ámbar Dorado", hex: "#b45309" },
@@ -24,9 +24,9 @@ export const CV_ACCENT_SWATCHES: ColorSwatchOption[] = [
 ];
 
 export const CV_SIDEBAR_SWATCHES: ColorSwatchOption[] = [
+  { id: "soft_slate", label: "Gris Minerva 1003", hex: "#f1f5f9" },
   { id: "dark_slate", label: "Oscuro Ejecutivo", hex: "#0f172a" },
   { id: "dark_indigo", label: "Índigo Profundo", hex: "#1e1b4b" },
-  { id: "soft_slate", label: "Gris Perla Claro", hex: "#f1f5f9" },
   { id: "soft_blue", label: "Azul Hielo Claro", hex: "#eff6ff" },
   { id: "soft_mint", label: "Menta Suave", hex: "#ecfdf5" },
   { id: "pure_white", label: "Blanco Limpio", hex: "#ffffff" },
@@ -39,10 +39,11 @@ export const CV_FONT_OPTIONS: { value: CvFontFamily; label: string }[] = [
 ];
 
 export const CV_HEADER_STYLE_OPTIONS: { value: CvHeaderStyle; label: string }[] = [
+  { value: "minerva", label: "Formato Minerva 1003 (Azul y Gris)" },
+  { value: "boxed_sena", label: "Cajas Normativas (Estilo SENA)" },
   { value: "split", label: "Dividido Moderno (Foto + Datos)" },
   { value: "banner", label: "Banner de Color Superior" },
   { value: "centered", label: "Centrado Clásico / ATS" },
-  { value: "boxed_sena", label: "Cajas Normativas (Estilo SENA)" },
 ];
 
 export const CV_SECTION_STYLE_OPTIONS: {

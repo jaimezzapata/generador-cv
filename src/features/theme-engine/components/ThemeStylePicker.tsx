@@ -12,7 +12,7 @@ export function ThemeStylePicker() {
     <div
       role="radiogroup"
       aria-label="Seleccionar estilo visual"
-      className="flex flex-wrap items-center gap-1.5"
+      className="flex items-center gap-1 flex-nowrap shrink-0"
     >
       {VISUAL_STYLES_CATALOG.map((item) => {
         const isSelected = item.id === activeStyle;
@@ -24,7 +24,7 @@ export function ThemeStylePicker() {
             size="sm"
             variant={isSelected ? "primary" : "surface"}
             onClick={() => setStyle(item.id)}
-            className="w-[116px] min-w-[116px] h-9 px-2.5"
+            className="h-8 px-2.5 text-xs font-bold gap-1.5 shrink-0 whitespace-nowrap"
           >
             <span
               className="inline-block w-2.5 h-2.5 rounded-full shrink-0"
